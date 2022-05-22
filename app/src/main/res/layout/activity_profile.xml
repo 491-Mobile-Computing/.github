@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".Profile">
 
+
     <TextView
         android:id="@+id/profile"
         android:text="Profile"

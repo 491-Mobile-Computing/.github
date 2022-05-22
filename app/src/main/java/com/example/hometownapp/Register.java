@@ -41,12 +41,12 @@ public class Register extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         // Action bar
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Create account");
+        //ActionBar actionBar = getSupportActionBar();
+       // actionBar.setTitle("Create account");
 
         //enable back button
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);
+      //  actionBar.setDisplayHomeAsUpEnabled(true);
+      //  actionBar.setDisplayShowHomeEnabled(true);
 
         // Initialize value
         rEmail = findViewById(R.id.editTextTextEmailAddress);
