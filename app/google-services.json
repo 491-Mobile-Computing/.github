@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "834828964210",
+    "project_id": "hometown-f3ee1",
+    "storage_bucket": "hometown-f3ee1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834828964210:android:616993f7ecc1ccbff38deb",
+        "android_client_info": {
+          "package_name": "com.example.hometownapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "834828964210-ebi9p0ql8fmr7k6unk698qnruc7g3q15.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxoL8t631oJfcLntyth14H3lm5sZqiT68"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "834828964210-ebi9p0ql8fmr7k6unk698qnruc7g3q15.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
