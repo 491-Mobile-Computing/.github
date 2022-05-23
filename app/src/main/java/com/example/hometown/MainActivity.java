@@ -1,4 +1,4 @@
-package com.example.hometownproject;
+package com.example.hometown;
 
 import androidx.appcompat.app.AppCompatActivity;
 
