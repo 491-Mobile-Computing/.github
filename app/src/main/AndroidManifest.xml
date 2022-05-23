@@ -12,9 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HometownApp">
         <activity
-            android:name=".Login"
-            android:exported="false" />
-        <activity
             android:name=".Profile"
             android:exported="false" />
         <activity

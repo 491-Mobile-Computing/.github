@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,15 +22,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity<onClick> extends AppCompatActivity implements View.OnClickListener {
 
     // private views
     private Button login, register;
     private EditText PersonName, Password;
-
     private FirebaseAuth mAuth;
 
-    ProgressDialog pd;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,74 +44,72 @@ public class MainActivity extends AppCompatActivity{
         mAuth = FirebaseAuth.getInstance();
 
         // init views
+
         PersonName = (EditText) findViewById(R.id.editTextTextPersonName);
         Password = (EditText) findViewById(R.id.editTextTextPassword);
 
-        register = (Button)findViewById(R.id.register_btn);
         login = (Button) findViewById(R.id.login_btn);
+        login.setOnClickListener(this);
 
-        // Login button click
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, Profile.class));
-                String username = PersonName.getText().toString();
-                String password = Password.getText().toString();
+        register = (Button) findViewById(R.id.register_btn);
+        register.setOnClickListener(this);
 
-                if (!Patterns.EMAIL_ADDRESS.matcher(username).matches()){
-                    //invalid email pattern
-                    PersonName.setError("Invalid Email");
-                    PersonName.setFocusable(true);
-                }
-                else{
-                    //valid email
-                    loginUser(username, password);
-                }
-            }
-        });
+        //progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
-        // Register button click
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //begin register
-                startActivity(new Intent(MainActivity.this, Register.class));
-            }
-        });
-
-        pd = new ProgressDialog(this);
-        pd.setMessage("Logging In...");
     }
 
-    private void loginUser(String username, String password) {
-        //Show progress
-        pd.show();
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            // Register button click
+            case R.id.register_btn:
+                startActivity(new Intent(this, Register.class));
+                break;
+            case R.id.login_btn:
+                userLogin();
+                break;
+        }
+    }
 
-        mAuth.signInWithEmailAndPassword(username, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // dismis progress dialog
-                            pd.dismiss();
-                            // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = mAuth.getCurrentUser();
+    private void userLogin() {
+        String username = PersonName.getText().toString().trim();
+        String password = Password.getText().toString().trim();
 
-                            //user is logged in, start activity
-                            startActivity(new Intent(MainActivity.this, Profile.class));
-                            finish();
-                        } else {
-                            pd.dismiss();
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(MainActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
+        if (username.isEmpty()) {
+            PersonName.setError("Email is required");
+            Password.requestFocus();
+            return;
+
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
+            PersonName.setError("Enter a valid email");
+            Password.requestFocus();
+            return;
+        }
+
+        if (password.isEmpty()) {
+            Password.setError("Password is required");
+            Password.requestFocus();
+
+        }
+
+        mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
-            public void onFailure(@NonNull Exception e) {
-                pd.dismiss();
-                Toast.makeText(MainActivity.this,""+e.getMessage(),Toast.LENGTH_SHORT).show();
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                //if the user has been loged in
+                if (task.isSuccessful()) {
+
+                    // Sign in success, update UI with the signed-in user's information
+                    FirebaseUser user = mAuth.getCurrentUser();
+
+                    //user is logged in, start activity
+                    startActivity(new Intent(MainActivity.this, Profile.class));
+
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Toast.makeText(MainActivity.this, "Failed to login", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

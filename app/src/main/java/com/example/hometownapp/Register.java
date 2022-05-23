@@ -72,13 +72,33 @@ public class Register extends AppCompatActivity {
                 String password = rPassword.getText().toString().trim();
                 String username = rUsername.getText().toString().trim();
 
-                //validate
+                //validate input
                 if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    rEmail.setError("Invalid Email");
-                    rEmail.setFocusable(true);
-                } else if (password.length() < 6) {
+                    rEmail.setError("Please provide valid email");
+                    rEmail.requestFocus();
+
+                } else if(email.isEmpty()){
+                    rEmail.setError("Email is required");
+                    rEmail.requestFocus();
+                    return;
+                }
+
+                else if(username.isEmpty()){
+                    rUsername.setError("Username is required");
+                    rUsername.requestFocus();
+                    return;
+                }
+
+                else if(password.isEmpty()){
+                    rPassword.setError("Password is required");
+                    rPassword.requestFocus();
+                    return;
+                }
+
+                else if (password.length() < 6) {
                     rPassword.setError("Password must be longer than 6 characters");
-                    rPassword.setFocusable(true);
+                    rPassword.requestFocus();
+
                 } else {
                     registerUser(email, password);
                 }
@@ -102,7 +122,7 @@ public class Register extends AppCompatActivity {
                                 }else {
                                         progressDialog.dismiss();
                                         // If sign in fails, display a message to the user.
-                                        Toast.makeText(Register.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Register.this, "Authentication failed. Try again", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }).addOnFailureListener(new OnFailureListener() {
@@ -120,4 +140,8 @@ public class Register extends AppCompatActivity {
         return super.onSupportNavigateUp();
     }
 }
+
+
+
+
 
