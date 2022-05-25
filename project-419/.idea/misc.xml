@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/tranl/Downloads/Spring 2022/Mobile Computing/Hometown/app/src/main/res/layout/activity_main.xml" value="0.12685185185185185" />
+        <entry key="..\:/Users/tranl/Downloads/Spring 2022/Mobile Computing/Hometown/app/src/main/res/layout/activity_profile.xml" value="0.12685185185185185" />
+        <entry key="..\:/Users/tranl/Downloads/Spring 2022/Mobile Computing/Hometown/app/src/main/res/layout/activity_register.xml" value="0.1111111111111111" />
+        <entry key="..\:/Users/tranl/Downloads/Spring 2022/Mobile Computing/Hometown/app/src/main/res/layout/activity_verfiy.xml" value="0.30416666666666664" />
+        <entry key="..\:/Users/tranl/Downloads/Spring 2022/Mobile Computing/Hometown/app/src/main/res/layout/phoneregister.xml" value="0.2222222222222222" />
+        <entry key="..\:/Users/tranl/Downloads/Spring 2022/Mobile Computing/Hometown/project-419/app/src/main/res/layout/activity_main.xml" value="0.14427083333333332" />
+        <entry key="..\:/Users/tranl/Downloads/Spring 2022/Mobile Computing/Hometown/project-419/app/src/main/res/layout/activity_profile.xml" value="0.30416666666666664" />
+        <entry key="..\:/Users/tranl/Downloads/Spring 2022/Mobile Computing/Hometown/project-419/app/src/main/res/layout/activity_register.xml" value="0.30416666666666664" />
+        <entry key="..\:/Users/tranl/Downloads/Spring 2022/Mobile Computing/Hometown/project-419/app/src/main/res/layout/activity_splash_welcome.xml" value="0.1" />
+        <entry key="..\:/Users/tranl/Downloads/Spring 2022/Mobile Computing/Hometown/project-419/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/tranl/Downloads/Spring 2022/Mobile Computing/Hometown/project-419/app/src/main/res/layout/fragment_profile.xml" value="0.2977777777777778" />
+        <entry key="..\:/Users/tranl/Downloads/Spring 2022/Mobile Computing/Hometown/project-419/app/src/main/res/layout/fragment_users.xml" value="0.1" />
+        <entry key="..\:/Users/tranl/Downloads/Spring 2022/Mobile Computing/Hometown/project-419/app/src/main/res/layout/phoneregister.xml" value="0.30416666666666664" />
+        <entry key="..\:/Users/tranl/Downloads/Spring 2022/Mobile Computing/Hometown/project-419/app/src/main/res/menu/menu_main.xml" value="0.14427083333333332" />
+        <entry key="..\:/Users/tranl/Downloads/Spring 2022/Mobile Computing/Hometown/project-419/app/src/main/res/menu/menu_nav.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
